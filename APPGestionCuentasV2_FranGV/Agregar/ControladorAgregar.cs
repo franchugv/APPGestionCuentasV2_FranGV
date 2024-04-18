@@ -1,4 +1,5 @@
 ﻿using APPGestionCuentasV2_FranGV.Principal;
+using R24_JesusCG_V1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace APPGestionCuentasV2_FranGV.Agregar
     public static class ControladorAgregar
     {
         
-        public static void ControladorA()
+        public static void ControladorA(List<Cuenta> ListaCu)
         {
             // Recursos
             string merror = "";
@@ -24,17 +25,22 @@ namespace APPGestionCuentasV2_FranGV.Agregar
             do {
                 esValido = true;
 
-                try { 
+                try {
+
+                    MetodosAgregar.CaptarDatosCuenta(ListaCu);
 
                 switch (opcion)
                 {
                     case OpcionesAgregar.Salir:
                         break;
                     case OpcionesAgregar.CuentaJoven:
+                            MetodosAgregar.AgregarCuentaJoven(ListaCu);
                         break;
                     case OpcionesAgregar.CuentaOro:
+                            MetodosAgregar.AgregarCuentaOro(ListaCu);
                         break;
                     case OpcionesAgregar.CuentaPlatino:
+                            MetodosAgregar.AgregarCuentaPlatino(ListaCu);
                         break;
                 }
 

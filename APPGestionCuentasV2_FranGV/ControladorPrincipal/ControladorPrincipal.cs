@@ -18,6 +18,7 @@ namespace APPGestionCuentasV2_FranGV.ControladorPrincipal
         {
             // Recursos
             bool esValido;
+            int OpcionCuenta = 0;
             string merror = "";
             OpcionesPrincipal Opcion = OpcionesPrincipal.Salir;
 
@@ -25,16 +26,23 @@ namespace APPGestionCuentasV2_FranGV.ControladorPrincipal
             {
                 esValido = true;
 
+                UIPrincipal.MenuPrincipal();
                 try
                 {
                     Opcion = (OpcionesPrincipal)Metodos.CaptarOpcionEnum((byte)Enum.GetValues<OpcionesPrincipal>().Length);
+
+                    if (Opcion != OpcionesPrincipal.Agregar) 
+                    { 
+                    UIPrincipal.MenuOpcionCuenta();
+                    OpcionCuenta = Metodos.CaptarInt();
+                    }
 
                     switch (Opcion)
                     {
                         case OpcionesPrincipal.Salir:
                             break;
                         case OpcionesPrincipal.Agregar:
-                            ControladorAgregar.ControladorA();
+                            ControladorAgregar.ControladorA(ListaC);
                             break;
                         case OpcionesPrincipal.Eliminar:
                             break;

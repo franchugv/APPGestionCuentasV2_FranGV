@@ -8,18 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="APIFicherosCuentas">
-      <HintPath>APIFicheros\APIFicherosCuentas.dll</HintPath>
-    </Reference>
-    <Reference Include="R24_JesusCG_V1">
-      <HintPath>APICuentas\R24_JesusCG_V1 1.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
+    <Folder Include="APIFicheros\" />
     <Folder Include="Eliminar\" />
     <Folder Include="Modificar\" />
     <Folder Include="Consultar\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="R24_JesusCG_V1">
+      <HintPath>APICuentas\R24_JesusCG_V1.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

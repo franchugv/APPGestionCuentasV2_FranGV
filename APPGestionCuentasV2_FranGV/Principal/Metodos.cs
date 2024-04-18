@@ -1,4 +1,5 @@
-﻿using System;
+﻿using R24_JesusCG_V1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -96,6 +97,89 @@ namespace APPGestionCuentasV2_FranGV.Principal
 
             return dato;
         }
+
+        public static double CaptarDouble()
+        {
+            // Recursos
+            string aux = "";
+            double dato = 0;
+            bool esValido;
+            string merror = "";
+
+            do
+            {
+                esValido = true;
+
+                try
+                {
+                    aux = Console.ReadLine();
+                    dato = Convert.ToDouble(aux);
+
+                    if (string.IsNullOrEmpty(aux)) throw new CadenaVaciaException();
+                }
+                catch (Exception Error)
+                {
+                    esValido = false;
+                    merror = Error.Message;
+                }
+                finally
+                {
+                    if (!esValido) MostrarError(merror);
+                }
+            } while (!esValido);
+
+            return dato;
+        }
+
+        public static DateTime CaptarFecha()
+        {
+            // Recursos
+            bool esValido;
+            string aux = "";
+            string merror = "";
+            DateTime dato = new DateTime();
+
+
+            do
+            {
+                esValido = true;
+
+                try
+                {
+                    aux = Console.ReadLine();
+                    dato = Convert.ToDateTime(aux);
+                }
+                catch (Exception Error)
+                {
+                    esValido = false;
+                    merror = Error.Message;
+                }
+                finally
+                {
+                    if (!esValido) Metodos.MostrarError(merror);
+                }
+
+            } while (!esValido);
+
+            return dato;
+
+        }
+
+        public static void Pausa()
+        {
+
+            Console.Write("Pulse Enter para continuar...");
+            Console.ReadLine();
+            Console.Clear();
+
+        }
+
+        public static void MostrarNumLista(List<Cuenta> ListaC)
+        {
+            Console.WriteLine($"El numero de cuentas es de: {ListaC.ToArray().Length}");
+        }
+
+
     }
     public class CadenaVaciaException : Exception
     {

@@ -10,9 +10,9 @@ namespace APPGestionCuentasV2_FranGV
 
             // RECURSOS
 
-            List<Cuenta> ListaCuentas;
+            List<Cuenta> ListaCuentas = new List<Cuenta>();
 
-
+            ControladorPrincipal.ControladorPrincipal.ControladorP(ListaCuentas);
 
         }
     }
